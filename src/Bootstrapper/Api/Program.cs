@@ -1,6 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services
+    .AddCarterWithAssemblies(typeof(CatalogModule).Assembly);
+
+// Add services to the container.
 builder.Services
     .AddCatalogModule(builder.Configuration)
     .AddBasketModule(builder.Configuration)
@@ -9,6 +14,9 @@ builder.Services
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.MapCarter();
+
 app
     .UseCatalogModule()
     .UseBasketModule()
