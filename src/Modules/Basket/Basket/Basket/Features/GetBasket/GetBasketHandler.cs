@@ -16,9 +16,7 @@ internal class GetBasketHandler(BasketDbContext dbContext)
             .SingleOrDefaultAsync(x => x.UserName == query.UserName, cancellationToken);
 
         if (basket is null)
-        {
             throw new BasketNotFoundException(query.UserName);
-        }
 
         //mapping basket entity to shoppingcartdto
         var basketDto = basket.Adapt<ShoppingCartDto>();
