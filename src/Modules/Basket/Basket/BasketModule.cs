@@ -1,3 +1,4 @@
+using Basket.Data.Repository;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ public static class BasketModule
         // 1. Api Endpoint services
 
         // 2. Application Use Case services
+        services.AddScoped<IBasketRepository, BasketRepository>();
+        services.Decorate<IBasketRepository, CachedBasketRepository>();     
 
         // 3. Data - Infrastructure services
         var connectionString = configuration.GetConnectionString("Database");

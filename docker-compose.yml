@@ -4,6 +4,9 @@ services:
   eshopdb:
     image: postgres:16
 
+  distributedcache:
+    image: redis
+    
   seq:
     image: datalust/seq:latest
     
