@@ -1,8 +1,8 @@
 namespace Catalog.Products.Features.GetProductById;
 
-public record GetProductByIdQuery(Guid Id)
+/*public record GetProductByIdQuery(Guid Id)
     : IQuery<GetProductByIdResult>;
-public record GetProductByIdResult(ProductDto Product);
+public record GetProductByIdResult(ProductDto Product);*/
 
 internal class GetProductByIdHandler(CatalogDbContext dbContext)
     : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
