@@ -38,3 +38,34 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+        
+  identity:
+    container_name: identity
+    restart: always
+    command: start
+    environment:
+      - KC_PROXY_ADDRESS_FORWARDING=true
+      - KC_HOSTNAME_STRICT=false
+      - KC_HOSTNAME=keycloak.jimsgarage.co.uk
+      - KC_PROXY=edge
+      - KC_HTTP_ENABLED=true
+      - KC_DB=postgres
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=postgres      
+      - KC_DB_URL=jdbc:postgresql://eshopdb:5432/EShopDb?currentSchema=identity
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=password
+    ports:
+      - '8181:8080'
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.keycloak.entrypoints=http'
+      - 'traefik.http.routers.keycloak.rule=Host(`keycloak.jimsgarage.co.uk`)'
+      - 'traefik.http.middlewares.keycloak-https-redirect.redirectscheme.scheme=https'
+      - 'traefik.http.routers.keycloak.middlewares=keycloak-https-redirect'
+      - 'traefik.http.routers.keycloak-secure.entrypoints=https'
+      - 'traefik.http.routers.keycloak-secure.rule=Host(`keycloak.jimsgarage.co.uk`)'
+      - 'traefik.http.routers.keycloak-secure.tls=true'
+      - 'traefik.http.routers.keycloak-secure.service=keycloak'
+      - 'traefik.http.services.keycloak.loadbalancer.server.port=8080'
+      - 'traefik.docker.network=proxy'
