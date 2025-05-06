@@ -7,14 +7,15 @@ builder.Host.UseSerilog((context, config) =>
 //common services: carter, mediatr, fluentvalidation
 var catalogAssembly = typeof(CatalogModule).Assembly;
 var basketAssembly = typeof(BasketModule).Assembly;
+var orderingModule = typeof(OrderingModule).Assembly;
 
 //common services: carter, mediatr, fluentvalidation
 
 builder.Services
-    .AddCarterWithAssemblies(catalogAssembly, basketAssembly);
+    .AddCarterWithAssemblies(catalogAssembly, basketAssembly,orderingModule);
 
 builder.Services
-    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly);
+    .AddMediatRWithAssemblies(catalogAssembly, basketAssembly,orderingModule);
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
@@ -22,7 +23,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 });
 
 builder.Services
-    .AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly);
+    .AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly,orderingModule);
 
 builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
 builder.Services.AddAuthorization();
