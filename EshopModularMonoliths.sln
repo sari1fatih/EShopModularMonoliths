@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Contracts", "src\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Contracts", "src\Shared\Shared.Contracts\Shared.Contracts.csproj", "{E1FA4545-40B5-4F66-BB4B-39B6A232F63B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Messaging", "src\Shared\Shared.Messaging\Shared.Messaging.csproj", "{50621408-98A5-415F-9CDB-4721F9670D41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{E1FA4545-40B5-4F66-BB4B-39B6A232F63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1FA4545-40B5-4F66-BB4B-39B6A232F63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1FA4545-40B5-4F66-BB4B-39B6A232F63B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50621408-98A5-415F-9CDB-4721F9670D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50621408-98A5-415F-9CDB-4721F9670D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50621408-98A5-415F-9CDB-4721F9670D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50621408-98A5-415F-9CDB-4721F9670D41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,5 +95,6 @@ Global
 		{892B00D6-2E36-4552-8F48-E9338292C057} = {39A21543-D09B-4AD6-B6A8-2218E422968C}
 		{77AD4C50-09CE-48A8-AA37-D9AFF584D049} = {9A2E59DF-3B30-443B-A338-4C7F6BA7370A}
 		{E1FA4545-40B5-4F66-BB4B-39B6A232F63B} = {39A21543-D09B-4AD6-B6A8-2218E422968C}
+		{50621408-98A5-415F-9CDB-4721F9670D41} = {39A21543-D09B-4AD6-B6A8-2218E422968C}
 	EndGlobalSection
 EndGlobal
