@@ -23,7 +23,10 @@ builder.Services.AddStackExchangeRedisCache(options =>
 });
 
 builder.Services
-    .AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly,orderingModule);
+    .AddMassTransitWithAssemblies(builder.Configuration, 
+        catalogAssembly, 
+        basketAssembly,
+        orderingModule);
 
 builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
 builder.Services.AddAuthorization();
