@@ -17,7 +17,6 @@ internal class CreateOrderHandler(OrderingDbContext dbContext)
     public async Task<CreateOrderResult> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
         var order = CreateNewOrder(command.Order);
-
         dbContext.Orders.Add(order);
         await dbContext.SaveChangesAsync(cancellationToken);
 

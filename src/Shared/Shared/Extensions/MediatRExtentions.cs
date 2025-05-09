@@ -14,6 +14,7 @@ public static class MediatRExtentions
         {
             config.RegisterServicesFromAssemblies(assemblies);
             config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            config.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
 
